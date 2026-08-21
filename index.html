@@ -761,8 +761,8 @@ const demoStore = {
     {id:'buy1', descricao:'Snack-Nachschub', valor:18.40, data:demoDate(2), mes:DEMO_MONTH, nota:'Demo'}
   ],
   consumos: [
-    {id:'c1', person:'Lara', productId:'p1', productName:'Nussriegel', cat:'snack', price:2.50, unitPrice:2.50, qty:1, timestamp:demoDate(5)+'T09:15:00.000Z', estado:'ativo'},
-    {id:'c2', person:'Marco', productId:'p3', productName:'Mineralwasser', cat:'drink', price:3.00, unitPrice:1.50, qty:2, timestamp:demoDate(6)+'T12:30:00.000Z', estado:'ativo'}
+    {id:'c1', person:'Lara', productId:'p1', productName:'Nussriegel', cat:'snack', price:2.50, unitPrice:2.50, qty:1, timestamp:demoDate(5)+'T09:15:00.000Z', estado:'activo'},
+    {id:'c2', person:'Marco', productId:'p3', productName:'Mineralwasser', cat:'drink', price:3.00, unitPrice:1.50, qty:2, timestamp:demoDate(6)+'T12:30:00.000Z', estado:'activo'}
   ],
   einkauf: [
     {productId:'p2', productName:'Schokolade', cat:'snack', stockAtual:2, qtyComprar:8, reservado:false},
@@ -782,7 +782,7 @@ async function demoApi(action, body={}) {
     case 'getConsumos':
       return cloneDemo({consumos:demoStore.consumos.filter(r => !body.month || String(r.timestamp).slice(0,7) === body.month)});
     case 'addConsumo':
-      demoStore.consumos.push({...body, id:'demo-'+Date.now(), estado:'ativo'});
+      demoStore.consumos.push({...body, id:'demo-'+Date.now(), estado:'activo'});
       return {ok:true};
     case 'cancelConsumo': {
       const row=demoStore.consumos.find(r=>String(r.id)===String(body.id));
