@@ -1,4 +1,4 @@
-# SnackBox MTO — demonstração pública
+# SnackBox Demo — demonstração pública
 
 Aplicação web responsiva para gestão interna de uma snackbox: produtos, stock, consumos, pagamentos, caixa e lista de compras.
 
